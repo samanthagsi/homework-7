@@ -21,6 +21,7 @@ class MainController extends Controller
         //todo create a 404 twig template in app/public/assets/views
         //an example is in app/controllers/UsersController
         //and return it from this method
+        echo $this->twig->load('404/404.twig')->render();
     }
 
 }
