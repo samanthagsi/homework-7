@@ -18,4 +18,12 @@ class Post
             ]
         ];
     }
+    
+    public function createPost($name, $description)
+    {
+        return [
+            'name' => $name,
+            'description' => $description
+        ];
+    }
 }

@@ -1,14 +1,11 @@
 <?php
-
 namespace app\controllers;
+
 use app\core\Controller;
 use app\models\Post;
 
 class PostController extends Controller
 {
-//todo make a method to return some posts, post objects should come from the post model class
-//also need to make a twig template to show the posts
-//an example is in app/controllers/UsersController
     public function index()
     {
         $postModel = new Post();
@@ -18,4 +15,30 @@ class PostController extends Controller
         ];
         echo $template->render($homepageData);
     }
+
+    // HW8
+    public function create() {
+    
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    if (empty($name) || empty($description)) {
+        http_response_code(400);
+        echo "Please include both name and description.";
+        return;
+    }
+
+    $postModel = new Post();
+    $result = $postModel->save(['name' => $name, 'description' => $description]);
+
+    if ($result) {
+        $_SESSION['success_message'] = "Success!";
+    header("Location: /posts");
+    exit;
+
+    } else {
+        http_response_code(500);
+        echo "Failed";
+    }
+}
 }

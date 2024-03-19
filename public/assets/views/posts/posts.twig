@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Posts</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>HW8 Posts</title>
+</head>
+<body>
 
-        <div>
-            <h3>Posts</h3>
-            {% for key, value in posts %}
-                id : {{ value.id }} <br>
-                name : {{ value.name }} <br>
-                description : {{ value.description }} <br>
-            {% endfor %}
-        </div>
+<!-- form -->
+    <h3>Create New Post</h3>
+    <form action="/posts/create" method="post">
+    <div>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+    </div>
 
+    <div>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+    </div> 
 
-    </body>
+        <button type="submit">submit</button>
+    </form>
+
+{% if success_message %}
+<div class="success-message">
+    {{ success_message }}
+</div>
+{% endif %}
+
+</body>
 </html>
