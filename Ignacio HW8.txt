@@ -1,0 +1,34 @@
+1. What does it mean to escape data? How does escaping data help us avoid malicious
+code?
+
+	Escaping data involves replacing special characters with their corresponding 	escape sequences to prevent them from being interpreted as code commands 	during processing. This is crucial to avoid security vulnerabilities like SQL 	injection and XSS attacks.
+	
+	By escaping data, we ensure that user input or external data is treated as 	literal text, not code. This disrupts malicious code embedded within the data, 	rendering it harmless.
+
+2. Please read through: https://www.codecademy.com/article/what-is-rest
+	a. What is REST? What is meant by Statelessness?
+	
+	REST (REpresentational State Transfer) is an architectural style for designing 	web services.
+	
+	Statelessness is a key characteristic of RESTful systems. In a stateless 	system, the server does not need to store information about the client's past 	requests. This makes RESTful systems more scalable and reliable.
+
+	b. What is a resource?
+
+	According to the article, a resource  is the noun of the Web - they describe 	any object, document, or thing that you may need to store or send to other 	services. In REST systems, resources are interacted with through standard 	operations. These standard operations are performed through HTTP verbs.
+
+	c. Look at the section on Path design: In a RESTful architecture paradigm what 	would be the proper way to create a path for: (provide URL and HTTP method):
+		i. getting a list of users?
+		ii. getting a particular user?
+		iii. saving a user?
+
+	GET all users: /users (HTTP method: GET)
+	GET a specific user: /users/123 (HTTP method: GET, where 123 is the user ID)
+	saving a user: /users (HTTP Method: POST)
+
+3. What is a Cookie?
+
+	A cookie is a small piece of data stored on a user's computer by a website. 
+
+4. What is a Session?
+
+	A session is a server-side mechanism for managing user state across multiple 	requests. The client includes the session ID with subsequent requests, allowing the server to identify the user and maintain state information. This approach is more secure than relying solely on cookies.
